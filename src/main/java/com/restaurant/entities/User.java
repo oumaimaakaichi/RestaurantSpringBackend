@@ -2,8 +2,6 @@ package com.restaurant.entities;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -22,9 +20,9 @@ public class User {
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private Long id ;
 	
-	@Column(name = "Firstname")
+	
 	private String firstname;
-	@Column(name = "Lastname")
+
 	private String lastname;
 
 	private String email;
@@ -37,20 +35,21 @@ public class User {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 	public enum Role {
-	    Admin,
-	    Student,
-	    Employe
+	    ADMIN,
+	    STUDENT,
+	    EMPLOYE
 	}
 	
 	public User(String firstname, String lastname, String email, String password, String phone, Role role) {
-		super();
-		firstname = firstname;
-		lastname = lastname;
-		this.email = email;
-		this.password = password;
-		this.phone = phone;
-		this.role = role;
+	    super();
+	    this.firstname = firstname;  // Utiliser 'this' pour faire référence à la variable d'instance
+	    this.lastname = lastname;    // Utiliser 'this' pour faire référence à la variable d'instance
+	    this.email = email;
+	    this.password = password;
+	    this.phone = phone;
+	    this.role = role;
 	}
+
 	public User() {
 		super();
 	}
@@ -62,14 +61,15 @@ public class User {
 		return firstname;
 	}
 	public void setFirstname(String firstname) {
-		firstname = firstname;
+		this.firstname = firstname;
 	}
 	public String getLastname() {
 		return lastname;
 	}
 	public void setLastname(String lastname) {
-		lastname = lastname;
+	    this.lastname = lastname;
 	}
+
 	public String getEmail() {
 		return email;
 	}
