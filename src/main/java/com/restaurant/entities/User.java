@@ -3,8 +3,6 @@ package com.restaurant.entities;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,9 +22,11 @@ public class User {
 	@GeneratedValue (strategy=GenerationType.IDENTITY)
 	private Long id ;
 	
-	
-	private String Firstname;
-	private String Lastname;
+	@Column(name = "Firstname")
+	private String firstname;
+	@Column(name = "Lastname")
+	private String lastname;
+
 	private String email;
 	private String password;
 	private String phone;
@@ -44,8 +44,8 @@ public class User {
 	
 	public User(String firstname, String lastname, String email, String password, String phone, Role role) {
 		super();
-		Firstname = firstname;
-		Lastname = lastname;
+		firstname = firstname;
+		lastname = lastname;
 		this.email = email;
 		this.password = password;
 		this.phone = phone;
@@ -59,16 +59,16 @@ public class User {
 	}
 
 	public String getFirstname() {
-		return Firstname;
+		return firstname;
 	}
 	public void setFirstname(String firstname) {
-		Firstname = firstname;
+		firstname = firstname;
 	}
 	public String getLastname() {
-		return Lastname;
+		return lastname;
 	}
 	public void setLastname(String lastname) {
-		Lastname = lastname;
+		lastname = lastname;
 	}
 	public String getEmail() {
 		return email;
@@ -98,7 +98,7 @@ public class User {
   
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", Firstname=" + Firstname + ", Lastname=" + Lastname + ", email=" + email
+		return "User [id=" + id + ", Firstname=" + firstname + ", Lastname=" + lastname + ", email=" + email
 				+ ", password=" + password + ", phone=" + phone + ", role=" + role + ", createdAt=" + createdAt
 				+ ", updatedAt=" + updatedAt + "]";
 	}

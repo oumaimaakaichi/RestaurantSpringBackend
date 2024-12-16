@@ -1,4 +1,4 @@
-package com.restaurant.Repositories;
+package com.restaurant.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
